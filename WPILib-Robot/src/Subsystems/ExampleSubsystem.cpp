@@ -1,14 +1,11 @@
 #include "ExampleSubsystem.h"
 #include "../RobotMap.h"
 
-ExampleSubsystem::ExampleSubsystem() :
-		Subsystem("ExampleSubsystem")
-{
+ExampleSubsystem::ExampleSubsystem() : Subsystem("ExampleSubsystem") {
 	std::cout << "ExampleSubsystem::ExampleSubsystem()" << std::endl;
 }
 
-void ExampleSubsystem::InitDefaultCommand()
-{
+void ExampleSubsystem::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
 	std::cout << "ExampleSubsystem::InitDefaultCommand()" << std::endl;
@@ -16,4 +13,3 @@ void ExampleSubsystem::InitDefaultCommand()
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-

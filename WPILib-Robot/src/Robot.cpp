@@ -3,42 +3,36 @@
 #include "Commands/ExampleCommand.h"
 #include "CommandBase.h"
 
-class Robot: public IterativeRobot
-{
+class Robot: public IterativeRobot {
 private:
 	Command *autonomousCommand;
 	LiveWindow *lw;
 
-	void RobotInit()
-	{
-		std::cout << "Robot::RobotInit()" << std::endl;
+	void RobotInit() {
+		std::cout << "Robot::RobotInit" << std::endl;
 		CommandBase::init();
 		autonomousCommand = new ExampleCommand();
 		lw = LiveWindow::GetInstance();
 	}
 	
-	void DisabledPeriodic()
-	{
-		std::cout << "Robot::DisabledPeriodic()" << std::endl;
+	void DisabledPeriodic() {
+		//std::cout << "Robot::DisabledPeriodic" << std::endl;
 		Scheduler::GetInstance()->Run();
 	}
 
-	void AutonomousInit()
-	{
-		std::cout << "Robot::AutonomousInit()" << std::endl;
+	void AutonomousInit() {
+		std::cout << "Robot::AutonomousInit" << std::endl;
 		if (autonomousCommand != NULL)
 			autonomousCommand->Start();
 	}
 
-	void AutonomousPeriodic()
-	{
-		std::cout << "Robot::AutonomousPeriodic()" << std::endl;
+	void AutonomousPeriodic() {
+		//std::cout << "Robot::AutonomousPeriodic" << std::endl;
 		Scheduler::GetInstance()->Run();
 	}
 
-	void TeleopInit()
-	{
-		std::cout << "Robot::TeleopInit()" << std::endl;
+	void TeleopInit() {
+		std::cout << "Robot::TeleopInit" << std::endl;
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove
@@ -47,15 +41,17 @@ private:
 			autonomousCommand->Cancel();
 	}
 
-	void TeleopPeriodic()
-	{
-		std::cout << "Robot::TeleopPeriodic()" << std::endl;
+	void TeleopPeriodic() {
+		//std::cout << "Robot::TeleopPeriodic" << std::endl;
 		Scheduler::GetInstance()->Run();
 	}
 
-	void TestPeriodic()
-	{
-		std::cout << "Robot::TestPeriodic()" << std::endl;
+	void TestInit() {
+		//std::cout << "Robot::TestInit" << std::endl;
+	}
+
+	void TestPeriodic() {
+		//std::cout << "Robot::TestPeriodic" << std::endl;
 		lw->Run();
 	}
 };
